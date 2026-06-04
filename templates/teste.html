@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Teste de Bem-Estar</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    
+    <h1>🧠 Teste de Bem-Estar Emocional</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <form method="POST">
+
+            <h3>1. Como você tem se sentido nos últimos dias?</h3>
+
+            <label class="opcao">
+    <input type="radio" name="resposta1" value="0">
+    Bem
+</label>
+
+<label class="opcao">
+    <input type="radio" name="resposta1" value="1">
+    Um pouco estressado
+</label>
+
+<label class="opcao">
+    <input type="radio" name="resposta1" value="2">
+    Muito estressado
+</label>
+            <h3>2. Como está sua qualidade de sono?</h3>
+
+            <label class="opcao">
+                <input type="radio" name="resposta2" value="0">
+                Boa
+            </label>
+            <label class="opcao">
+                <input type="radio" name="resposta" value="1">
+                Regular
+            </label>
+            <label class="opcao">
+                <input type="radio" name="resposta2" value="2">
+                Ruim
+            </label>
+            <br><br>
+
+            <h3>3. Você está conseguindo manter sua rotina?</h3>
+            
+
+            <label class="opcao">
+                <input type="radio" name="resposta3" value="0">
+                Sim
+            </label>
+            <label class="opcao">
+                <input type="radio" name="resposta" value="1">
+                Parcialmente
+            </label>
+            <label class="opcao">
+                <input type="radio" name="resposta3" value="2">
+                Não
+            </label>
+            <br><br>
+
+            <button type="submit">
+                Analisar Resultado
+            </button>
+
+        </form>
+
+        {% if resultado %}
+        <div class="resultado">
+            {{ resultado }}
+        </div>
+        {% endif %}
+
+    </div>
+
+</div>
+
+<footer>
+    PsiCodevs © 2026
+</footer>
+
+</body>
+</html>

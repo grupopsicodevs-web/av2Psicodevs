@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diário Emocional</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Diário Emocional</h1>
+    <p>Registre seus sentimentos</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <form method="POST">
+
+            <textarea
+                name="texto"
+                rows="5"
+                style="width:100%; padding:15px;"
+                placeholder="Como você está se sentindo hoje?">
+            </textarea>
+
+            <br><br>
+
+            <button type="submit">
+                Salvar Registro
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Histórico</h2>
+
+        {% for item in registros %}
+
+            <div class="msg">
+                {{ item.texto }}
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+    PsiCodevs © 2026 - Promovendo bem-estar emocional através da tecnologia
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Personas</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>👥 Personas</h1>
+</header>
+
+<div class="container">
+
+    {% for p in personas %}
+
+    <div class="card">
+
+        <h2>{{ p.nome }}</h2>
+
+        <p>
+            <strong>Perfil:</strong>
+            {{ p.perfil }}
+        </p>
+
+        <br>
+
+        <p>
+            <strong>Desafio:</strong>
+            {{ p.problema }}
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<footer>
+    PsiCodevs © 2026
+</footer>
+
+</body>
+</html>

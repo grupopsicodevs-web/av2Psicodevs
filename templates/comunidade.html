@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comunidade</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Comunidade</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <form method="POST">
+
+            <input type="text"
+            name="mensagem"
+            placeholder="Digite uma mensagem">
+
+            <button type="submit">
+                Enviar
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Mensagens</h2>
+
+        {% for msg in mensagens %}
+            <p>{{ msg.texto }}</p>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+    PsiCodevs © 2026 - Promovendo bem-estar emocional através da tecnologia
+</footer>
+</body>
+</html>

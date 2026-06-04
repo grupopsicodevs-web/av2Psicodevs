@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Dashboard PsiCodevs</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📊 Dashboard PsiCodevs</h1>
+
+<p>Visão geral da plataforma</p>
+
+</header>
+
+<div class="container">
+
+<div class="dashboard-grid">
+
+<div class="info-box">
+
+<h2>Mensagens na Comunidade</h2>
+
+<h1>{{ total }}</h1>
+
+</div>
+
+<div class="info-box">
+
+<h2>Check-ins Realizados</h2>
+
+<h1>{{ checkins }}</h1>
+
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>💡 Dicas de Bem-Estar</h2>
+
+<ul>
+
+{% for dica in dicas %}
+
+<li>{{ dica }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>📈 Objetivo do Projeto</h2>
+
+<p>
+Promover o acompanhamento emocional de estudantes e profissionais,
+oferecendo ferramentas de apoio psicológico e conscientização
+sobre saúde mental.
+</p>
+
+</div>
+
+<a href="/">
+
+<button>
+⬅ Voltar ao Início
+</button>
+
+</a>
+
+</div>
+
+<footer>
+
+PsiCodevs © 2026 - Promovendo bem-estar emocional através da tecnologia
+
+</footer>
+
+</body>
+</html>
