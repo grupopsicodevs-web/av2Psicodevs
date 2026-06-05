@@ -1,6 +1,6 @@
 from flask import render_template, request
 from config import db
-from models import Message, Checkin, Diario
+from models import Message, Checkin, Diario, Persona
 
 
 def init_routes(app):
@@ -64,6 +64,30 @@ def init_routes(app):
         return render_template(
             "teste.html",
             resultado=resultado
+        )
+    
+    @app.route("/personas", methods=["GET", "POST"])
+    def personas():
+
+        if request.method == "POST":
+            nome = request.form["nome"]
+            perfil = request.form["perfil"]
+            problema = request.form["problema"]
+
+            nova_persona = Persona(
+            nome=nome,
+            perfil=perfil,
+            problema=problema
+            )
+
+            db.session.add(nova_persona)
+            db.session.commit()
+
+        todas = Persona.query.all()
+
+        return render_template(
+            "personas.html",
+            personas=todas
         )
 
     @app.route("/comunidade", methods=["GET", "POST"])

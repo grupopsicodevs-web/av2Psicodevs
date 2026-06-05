@@ -14,8 +14,22 @@
     <h1>👥 Personas</h1>
 </header>
 
+<!-- 🔥 FORMULÁRIO ENTRA AQUI (ANTES DA LISTA) -->
 <div class="container">
 
+    <form method="POST">
+
+        <input type="text" name="nome" placeholder="Nome da persona" required>
+        <input type="text" name="perfil" placeholder="Perfil" required>
+        <input type="text" name="problema" placeholder="Desafio" required>
+
+        <button type="submit">Adicionar persona</button>
+
+    </form>
+
+    <hr>
+
+    <!-- LISTA DE PERSONAS -->
     {% for p in personas %}
 
     <div class="card">
