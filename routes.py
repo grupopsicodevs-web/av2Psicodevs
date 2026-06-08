@@ -18,8 +18,13 @@ def init_routes(app):
 
         dicas = [
             "Pratique respiração profunda",
-            "Faça pausas durante os estudos",
-            "Durma pelo menos 7 horas",
+            "Procure uma rede de apoio",
+            "Busque atividades que tragam prazer",
+            "Mantenha uma rotina saudável",
+            "Evite o isolamento social",
+            "Limite o consumo de notícias negativas",
+            "Faça exercícios físicos regularmente",
+            "Durma pelo menos 7 horas por dia",
             "Converse com alguém de confiança"
         ]
 
@@ -37,28 +42,29 @@ def init_routes(app):
 
         if request.method == "POST":
 
-            r1 = int(request.form.get("resposta1", 0))
-            r2 = int(request.form.get("resposta2", 0))
-            r3 = int(request.form.get("resposta3", 0))
+            r1 = int(request.form.get("pergunta1", 0))
+            r2 = int(request.form.get("pergunta2", 0))
+            r3 = int(request.form.get("pergunta3", 0))
+            r4 = int(request.form.get("pergunta4", 0))
 
-            score = r1 + r2 + r3
+            score = r1 + r2 + r3 + r4
 
             if score <= 2:
                 resultado = """
                 Você aparenta estar emocionalmente bem 😊
-                Continue cuidando da sua saúde mental.
+                Continue mantendo hábitos saudáveis e sua rede de apoio.
                 """
 
-            elif score <= 4:
+            elif score <= 5:
                 resultado = """
-                Você demonstra alguns sinais de estresse 😐
-                Procure reservar momentos para descanso e lazer.
+                Você apresenta alguns sinais de desgaste emocional 😐
+                Considere conversar com familiares, amigos ou buscar apoio profissional.
                 """
 
             else:
                 resultado = """
                 Atenção ao seu bem-estar emocional ❤️
-                Considere buscar apoio emocional e conversar com pessoas de confiança.
+                Recomendamos procurar apoio psicológico e fortalecer sua rede de apoio.
                 """
 
         return render_template(
