@@ -104,13 +104,12 @@
 
     <br><br>
 
-    <button
-    type="button"
-    onclick="lerTexto('{{ resultado }}')">
-
-        🔊 Ouvir resultado
-
-    </button>
+   <button
+type="button"
+onclick="lerTexto(this.dataset.texto)"
+data-texto="{{ resultado }}">
+🔊 Ouvir resultado
+</button>
 
 </div>
 {% endif %}
@@ -123,5 +122,22 @@
     PsiCodevs © 2026 - Promovendo bem-estar emocional através da tecnologia
 </footer>
 
+<script>
+
+function lerTexto(texto) {
+
+    speechSynthesis.cancel();
+
+    let fala = new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+    fala.rate = 1;
+    fala.pitch = 1;
+    fala.volume = 1;
+
+    speechSynthesis.speak(fala);
+}
+
+</script>
 </body>
 </html>
