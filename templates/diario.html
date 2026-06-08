@@ -24,6 +24,10 @@
                 placeholder="Como você está se sentindo hoje?">
             </textarea>
 
+            <button type="button" onclick="iniciarVoz()">
+            🎤 Falar
+            </button>
+
             <br><br>
 
             <button type="submit">
@@ -54,5 +58,38 @@
     PsiCodevs © 2026 - Promovendo bem-estar emocional através da tecnologia
 </footer>
 
+<script>
+
+function iniciarVoz() {
+
+    const reconhecimento =
+    new webkitSpeechRecognition();
+
+    reconhecimento.lang = "pt-BR";
+
+    reconhecimento.start();
+
+    reconhecimento.onresult = function(event) {
+
+        const textoFalado =
+        event.results[0][0].transcript;
+
+        document.querySelector(
+            "textarea[name='texto']"
+        ).value = textoFalado;
+    };
+}
+
+function lerTexto(texto) {
+
+    const fala = new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+
+    window.speechSynthesis.speak(fala);
+}
+
+
+</script>
 </body>
 </html>

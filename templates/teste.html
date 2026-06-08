@@ -77,10 +77,22 @@
         </form>
 
         {% if resultado %}
-        <div class="resultado">
-            {{ resultado }}
-        </div>
-        {% endif %}
+<div class="resultado">
+
+    {{ resultado }}
+
+    <br><br>
+
+    <button
+    type="button"
+    onclick="lerTexto('{{ resultado }}')">
+
+        🔊 Ouvir resultado
+
+    </button>
+
+</div>
+{% endif %}
 
     </div>
 

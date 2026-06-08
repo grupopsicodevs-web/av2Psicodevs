@@ -9,6 +9,13 @@
 </head>
 
 <body>
+<button
+type="button"
+onclick="lerTexto('Bem-vindo ao PsiCodevs. Plataforma de apoio ao bem-estar emocional. Escolha uma opção do menu para continuar.')">
+
+🔊 Ouvir página
+</button>
+
 <div class="card">
 
 <h2 style="text-align:center;">
@@ -84,3 +91,24 @@ comunidade de apoio e acompanhamento de indicadores de saúde mental.
 <footer>
     PsiCodevs © 2026 - Promovendo bem-estar emocional através da tecnologia
 </footer>
+
+<script>
+
+function lerTexto(texto) {
+
+    speechSynthesis.cancel();
+
+    const fala = new SpeechSynthesisUtterance(texto);
+
+    fala.lang = "pt-BR";
+    fala.volume = 1;
+    fala.rate = 1;
+    fala.pitch = 1;
+
+    speechSynthesis.speak(fala);
+}
+
+</script>
+
+</body>
+</html>

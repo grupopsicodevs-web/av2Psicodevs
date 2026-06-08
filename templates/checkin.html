@@ -5,6 +5,7 @@
 
 <title>Check-in Emocional</title>
 
+
 <link rel="stylesheet"
 href="{{ url_for('static', filename='style.css') }}">
 
@@ -13,6 +14,16 @@ href="{{ url_for('static', filename='style.css') }}">
 <body>
 
 <header>
+    <button
+type="button"
+onclick="lerTexto('Bem-vindo ao check-in emocional. Escolha como está se sentindo hoje e clique em salvar humor.')">
+🔊 Ouvir instruções
+</button>
+
+<button type="button" onclick="capturarHumor()">
+🎤 Informar humor por voz
+</button>
+
 <h1>Check-in Emocional</h1>
 <p>Como você está hoje?</p>
 </header>
@@ -72,5 +83,86 @@ Salvar Humor
 <footer>
     PsiCodevs © 2026 - Promovendo bem-estar emocional através da tecnologia
 </footer>
+
+<script>
+
+function lerTexto(texto) {
+
+    const fala = new SpeechSynthesisUtterance();
+
+    fala.text = texto;
+    fala.lang = "pt-BR";
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(fala);
+}
+
+function capturarHumor() {
+
+    const reconhecimento =
+    new webkitSpeechRecognition();
+
+    reconhecimento.lang = "pt-BR";
+
+    reconhecimento.start();
+
+    reconhecimento.onresult = function(event) {
+
+        const texto =
+        event.results[0][0].transcript.toLowerCase();
+
+        const select =
+        document.querySelector("select[name='humor']");
+
+        if(texto.includes("feliz"))
+            select.value = "Feliz";
+
+        else if(texto.includes("normal"))
+            select.value = "Normal";
+
+        else if(texto.includes("ansioso"))
+            select.value = "Ansioso";
+
+        else if(texto.includes("triste"))
+            select.value = "Triste";
+    };
+}
+
+</script>
+
 </body>
 </html>
+<script>
+
+function capturarHumor() {
+
+    const reconhecimento =
+    new webkitSpeechRecognition();
+
+    reconhecimento.lang = "pt-BR";
+
+    reconhecimento.start();
+
+    reconhecimento.onresult = function(event) {
+
+        const texto =
+        event.results[0][0].transcript.toLowerCase();
+
+        const select =
+        document.querySelector("select[name='humor']");
+
+        if(texto.includes("feliz"))
+            select.value = "Feliz";
+
+        else if(texto.includes("normal"))
+            select.value = "Normal";
+
+        else if(texto.includes("ansioso"))
+            select.value = "Ansioso";
+
+        else if(texto.includes("triste"))
+            select.value = "Triste";
+    };
+}
+
+</script>

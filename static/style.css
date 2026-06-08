@@ -6,7 +6,7 @@
 
 body{
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg,#EAF4F4,#DCEAF5);
+    background: linear-gradient(135deg,#EAF2FF,#CFE8FF);
     min-height:100vh;
 }
 
@@ -40,7 +40,7 @@ header p{
     margin-bottom:25px;
     box-shadow:0 10px 25px rgba(0,0,0,0.08);
     transition:all 0.3s ease;
-    border-top:5px solid #7BC6A4;
+    border-top: 5px solid #3A86C4;
 }
 
 .card:hover{
@@ -56,15 +56,19 @@ header p{
 button{
     width:100%;
     border:none;
-    background:linear-gradient(135deg,#7BC6A4,#5DBA8D);
+    background:#3A86C4;
     color:white;
     padding:18px;
     border-radius:14px;
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
-    transition:all 0.3s ease;
-    box-shadow:0 5px 15px rgba(0,0,0,0.10);
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1E6091;
+    transform:scale(1.04);
 }
 
 button:hover{
@@ -107,8 +111,8 @@ li{
 }
 
 .resultado{
-    background:#EAF8F2;
-    color:#2f6f53;
+    background:#E8F4FF;
+    color:#1E6091;
     padding:20px;
     border-radius:12px;
     margin-top:20px;
@@ -123,7 +127,7 @@ li{
 }
 
 .info-box{
-    background:linear-gradient(135deg,#3A7CA5,#5A9BCF);
+    background: linear-gradient(135deg,#1E6091,#3A86C4);
     color:white;
     padding:30px;
     border-radius:18px;
@@ -162,7 +166,7 @@ footer{
 }
 
 body{
-    border: 5px solid red;
+    border: 1px solid #3A7CA5;
 }
 
 .opcao{
@@ -178,4 +182,13 @@ body{
     width:auto;
     margin:0;
     padding:0;
+}
+
+.acessibilidade {
+    background: #3A7CA5;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    margin: 20px;
+    font-size: 16px;
 }
